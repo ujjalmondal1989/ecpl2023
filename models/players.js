@@ -9,8 +9,8 @@ var playerSchema = new mongoose.Schema({
   achievements: String,
   address: String,
   photos: [String],
-  soldTo: String,
-  soldAmount: String,
+  soldTo: { type: String, default: null },
+  soldAmount: { type: String, default: 0 },
   created: { type: Date, default: Date.now }
 });
 

@@ -16,7 +16,7 @@ const upload = async (req, res) => {
       soldAmount 
     } = req.body;
     playerPhotos = req.files.map((fl)=>{
-      return name+fl.originalname;
+      return fl.originalname;
     });
     const newPlayer = new playerModel({
       name,
@@ -68,12 +68,12 @@ const updatePlayer = async(req, res) => {
     position,
     achievements,
     address,
-    photos,
     soldTo,
     soldAmount 
   } = req.body;
   playerPhotos = req.files.map((fl)=>{
-    return name+fl.originalname;
+    console.log(fl);
+    return fl.originalname;
   });
   const updatePlayer = await playerModel.findByIdAndUpdate(req.params.id, { 
     name,
